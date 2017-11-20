@@ -1,0 +1,18 @@
+{
+	"events": [{
+		"title": "Event 1",
+		"description": "ISIMATIC",
+		"location": "ISIMA, Campus des Cézeaux",
+		"speaker": "Mr Guitton",
+		"date": "Jeudi 16 Novembre",
+		"time": "10h30"
+	},
+	{
+		"title": "Event 2",
+		"description": "Campagnes BDE",
+		"location": "ISIMA, Campus des Cézeaux",
+		"speaker": "Franck Darignac",
+		"date": "Décembre",
+		"time": "TOUT LE TEMPS"
+	}]
+}
