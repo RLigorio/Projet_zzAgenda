@@ -2,7 +2,7 @@
 
 // Page d'acceuil
 $bienvenue = "Créez votre propre Agenda!";
-$description = "En quelques étapes, il ressembleras à ça:";
+$description1 = "En quelques étapes, vous obtiendrez cela";
 $langue = "Selectionner la langue";
 $log1 = "Se connecter";
 
