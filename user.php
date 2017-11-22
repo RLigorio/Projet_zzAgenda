@@ -46,7 +46,7 @@
 		 		<span class="icon-bar"></span>
 		 		<span class="icon-bar"></span>
 		 	</button>
-		   <a class="navbar-brand" href="http://fc.isima.fr/~raligorio/DevWeb/Projet/" style="font-size: 30px; margin-bottom:3px;"><span class="glyphicon glyphicon-envelope" style="color: white;"></span>  zzAgenda</a>
+		   <a class="navbar-brand" href="logout.php" style="font-size: 30px; margin-bottom:3px;"><span class="glyphicon glyphicon-envelope" style="color: white;"></span>  zzAgenda</a>
 		 </div>
 		 <div class="collapse navbar-collapse" id="myNavbar">
 		 	<ul class="nav navbar-nav" style="font-size:20px; margin-top:13px;">
@@ -135,7 +135,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group date" id="datePicker">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-									<input type="text" class="form-control" name="date">
+									<input type="text" class="form-control" name="EventDate">
 								</div>
 							</div>
 						</div>	
@@ -145,7 +145,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group timePicker">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-									<input type="time" class="form-control">
+									<input type="time" class="form-control" name="EventTime">
 								</div>
 							</div>
 						</div>
