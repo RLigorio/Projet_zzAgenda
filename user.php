@@ -250,12 +250,13 @@
 		 		</div>
 	  </div>
 	</div>
-
-	<div class="footer">
+	<div class="row" style="margin-top:40px">
+	</div>
+	<footer>
 		<div class="text-center">
 		  <p>© Copyright Ligorio Raphaël, Pierrain Emmanuel</p>
 		</div>
-	</div>
+	</footer>
 
 	</body>
 </html>
