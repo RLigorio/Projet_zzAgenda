@@ -149,6 +149,7 @@
 								<div class="input-group timePicker">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
 									<input type="time" class="form-control" name="EventTime">
+									
 								</div>
 							</div>
 						</div>
@@ -215,6 +216,7 @@
 			<h1><?php echo $titre ;?></h1>
 		   <?php 
 				$event = json_decode(file_get_contents('event.json'));
+				$inc = 0;
 				   	
 				foreach($event->events as $i) {
 			?>
@@ -239,7 +241,10 @@
 									<button class="btn btn-primary" data-toggle="modal" data-target="#event-modal" type="button"><?php echo $bouton2 ;?></button>
 									<br>
 									<br>
-									<button class="btn btn-danger" type="button"><?php echo $bouton3 ;?></button>
+									<form action="deleteEvent.php?ind=<?php echo $inc ?>" method="post">
+										<button class="btn btn-danger" type="button submit" ><?php echo $bouton3 ;?></button>
+									</form>
+									<?php ++$inc ?>
 									<?php endif; ?>
 							</div>
 						</div>
