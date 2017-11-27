@@ -255,10 +255,10 @@
 		 		</div>
 	  </div>
 	</div>
-	<div class="row" style="margin-top:40px">
+	<div class="row" style="margin-top:60px;">
 	</div>
 	<footer>
-		<div class="text-center">
+		<div class="text-center" style="padding:20px;">
 		  <p>© Copyright Ligorio Raphaël, Pierrain Emmanuel</p>
 		</div>
 	</footer>
