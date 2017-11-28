@@ -98,7 +98,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
-									<input type="text" class="form-control" name="EventName" placeholder="<?php echo $nom2; ?>"/>
+									<input type="text" class="form-control" name="EventName" placeholder="<?php echo $nom2; ?>" required="required"/>
 								</div>
 							</div>
 						</div>
@@ -108,7 +108,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-bullhorn"></span></span>
-									<textarea rows="4" class="form-control" name="EventDes" placeholder="<?php echo $desc; ?>"/></textarea>
+									<textarea rows="4" class="form-control" name="EventDes" placeholder="<?php echo $desc; ?>" required="required"/></textarea>
 								</div>
 							</div>
 						</div>
@@ -118,7 +118,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span></span>
-									<input type="text" class="form-control" name="EventPlace" placeholder="<?php echo $loc2; ?>"/>
+									<input type="text" class="form-control" name="EventPlace" placeholder="<?php echo $loc2; ?>" required="required"/>
 								</div>
 							</div>
 						</div>
@@ -128,7 +128,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-									<input type="text" class="form-control" name="EventSpeak" placeholder="<?php echo $speak2; ?>"/>
+									<input type="text" class="form-control" name="EventSpeak" placeholder="<?php echo $speak2; ?>" required="required"/>
 								</div>
 							</div>
 						</div>
@@ -138,7 +138,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group date" id="datePicker">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-									<input type="text" class="form-control" name="EventDate">
+									<input type="text" class="form-control" name="EventDate" required="required">
 								</div>
 							</div>
 						</div>	
@@ -148,7 +148,7 @@
 							<div class="cols-sm-10">
 								<div class="input-group timePicker">
 									<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-									<input type="time" class="form-control" name="EventTime">
+									<input type="time" class="form-control" name="EventTime" required="required">
 									
 								</div>
 							</div>

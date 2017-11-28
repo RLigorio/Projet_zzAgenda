@@ -59,8 +59,8 @@
 			<div class="loginmodal-container">
 				<h1><?php echo $log2; ?></h1><br>
 				<form method="post" action="login.php">
-					<input type="text" name="username" placeholder="<?php echo $user; ?>">
-					<input type="password" name="password" placeholder="<?php echo $pass; ?>">
+					<input type="text" name="username" placeholder="<?php echo $user; ?>" required="required">
+					<input type="password" name="password" placeholder="<?php echo $pass; ?>" required="required">
 					<input type="submit" name="login" class="login loginmodal-submit" value="Login">
 				 </form>
 			</div>
