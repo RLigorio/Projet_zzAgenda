@@ -4,7 +4,7 @@
 	{
        	 	include_once('fr.php');
     	}
-    	else // Langue par défaut (ici anglais)
+    	else // English is set as default language
     	{
         	include_once('en.php');
     	}
@@ -14,41 +14,43 @@
 <html lang="en">
 	<?php session_start(); ?>
 	<head>
-	  	<title>zzAgenda</title>
-	  	<meta charset="utf-8">
-	  	<meta name="viewport" content="width=device-width, initial-scale=1">
-	  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	  	<link rel="stylesheet" href="style.css">
-	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<title>zzAgenda</title>
+	 	<meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="style.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		
 	  <!-- Include Bootstrap Datepicker -->
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
 
-    		<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
 
-	    	<style type="text/css">
-	    		#eventForm .form-control-feedback {
-	      		  top: 0;
-	      		  right: -15px;
-	      	  	}
-    		</style>
+	  	<style type="text/css">
+	    	#eventForm .form-control-feedback {
+	      	top: 0;
+	      	right: -15px;
+	      }
+    	</style>
 
 	</head>
 
 
 	<body>
-
+		
+		<!-- Creates navbar with Maps, Logout and Language Selection. The nvabar collapses into a button on a phone. -->
+		
 		<nav class="navbar navbar-inverse">
-	  		<div class="container-fluid">
+	  	<div class="container-fluid">
 		 		<div class="navbar-header">
 		 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 		 				<span class="icon-bar"></span>
 		 				<span class="icon-bar"></span>
 		 				<span class="icon-bar"></span>
 		 			</button>
-		   			<a class="navbar-brand" href="logout.php" style="font-size: 30px; margin-bottom:3px;"><span class="glyphicon glyphicon-envelope" style="color: white;"></span>  zzAgenda</a>
+		   		<a class="navbar-brand" href="logout.php" style="font-size: 30px; margin-bottom:3px;"><span class="glyphicon glyphicon-envelope" style="color: white;"></span>  zzAgenda</a>
 		 		</div>
 		 		<div class="collapse navbar-collapse" id="myNavbar">
 		 			<ul class="nav navbar-nav" style="font-size:20px; margin-top:13px;">
@@ -59,22 +61,23 @@
 		 					<li><p style="font-size:20px; margin-top:15px; margin-right:15px;"><?php echo $logged; ?> <?php echo $_SESSION['username'] ?></p></li>
 		 				<?php endif; ?>
 		 				<li><a href="logout.php" style="font-size:20px;"><span class="glyphicon glyphicon-log-out"></span> <?php echo $deco; ?></a></li>
-		    	 			<li class="dropdown" style="margin-top:8px; margin-right:15px;">
-		        				<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-		        					<?php echo $langue; ?>
+		    		<li class="dropdown" style="margin-top:8px; margin-right:15px;">
+		      		<button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		        		<?php echo $langue; ?>
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-		           					<li><a href="user.php?language=en">English</a></li>
-		           					<li><a href="user.php?language=fr">Français</a></li>
-		        				</ul>
-		        			</li>
-		   			</ul>
-	  			</div>
+		        		<li><a href="user.php?language=en">English</a></li>
+		         	 <li><a href="user.php?language=fr">Français</a></li>
+		       		</ul>
+		      	</li>
+		   		</ul>
+	  		</div>
 			</div>
 		</nav>
 
-
+		<!-- Includes Google Maps -->
+		
 		<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: center;">
 			<div class="modal-dialog">
 				<div class="mapsmodal-container">
@@ -83,12 +86,13 @@
 			</div>
 		</div>
 	
-	
+		<!-- Creates the form to add a new event -->
+		
 		<div class="modal fade" id="event-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: center;">
 			<div class="modal-dialog">
 				<div>
 					<form class="eventmodal-container" method="post" action="event.php">
-						
+			
 						<div class="form-group" style="text-align: center;">
 							<label for="Title" class="cols-sm-2 control-label" style="font-size: 30px;"><?php echo $bouton1; ?></label>
 						</div>
@@ -161,6 +165,8 @@
 						
 					</form>
 					
+					<!-- Script used to display a Calendar with datetimepicker3 -->
+					
 					<script>
 						$(document).ready(function() {
 		 					$('#datePicker')
@@ -196,30 +202,32 @@
 				});
 				</script>
 				
-
 				</div>
 			</div>
 		</div>
 	
 	
-	<div class="container-fluid text-center" style="margin-top:40px;">    
-	  <div class="row content">
-		 <div class="col-sm-2 sidenav">
-		 </div>
-		 <div class="col-sm-8 text-left"> 
-		   <?php if($_SESSION['admin']): ?>
-		   <button class="btn btn-primary" id="buttonAdd" data-toggle="modal" data-target="#event-modal" type="button"><?php echo $bouton1 ;?></button>
-		   <?php endif; ?>
-		   <?php if(isset($_SESSION['username'])): ?>
-		   <br>
-			<br>
-			<h1><?php echo $titre ;?></h1>
-		   <?php 
-				$event = json_decode(file_get_contents('event.json'));
-				$inc = 0;
+		<div class="container-fluid text-center" style="margin-top:40px;">    
+	  	<div class="row content">
+		 	<div class="col-sm-2 sidenav">
+		 	</div>
+		 	<div class="col-sm-8 text-left"> 
+		   	<?php if($_SESSION['admin']): ?>
+		   		<button class="btn btn-primary" id="buttonAdd" data-toggle="modal" data-target="#event-modal" type="button"><?php echo $bouton1 ;?></button>
+		   	<?php endif; ?>
+		   	<?php if(isset($_SESSION['username'])): ?>
+		   		<br>
+					<br>
+					
+					<!-- Display events that are in the json file event.json -->
+					
+					<h1><?php echo $titre ;?></h1>
+		   		<?php 
+						$event = json_decode(file_get_contents('event.json'));
+						$inc = 0;
 				   	
-				foreach($event->events as $i) {
-			?>
+						foreach($event->events as $i) {
+					?>
 						<br>
 						<div class="row">
 							<div class="col-sm-6 text-left">
@@ -236,7 +244,10 @@
 							<div class="col-sm-6 text-left">
 								<br>
 								<br>
-								 <?php if($_SESSION['admin']): ?>
+								
+								<!-- Display buttons Modify and Delete only if user is admin. Otherwise, no button is shown and it doesn't appear in the source code. -->
+								
+								<?php if($_SESSION['admin']): ?>
 									<br>
 									<button class="btn btn-primary" data-toggle="modal" data-target="#event-modal" type="button"><?php echo $bouton2 ;?></button>
 									<br>
@@ -245,16 +256,19 @@
 										<button class="btn btn-danger" type="button submit" ><?php echo $bouton3 ;?></button>
 									</form>
 									<?php ++$inc ?>
-									<?php endif; ?>
+								<?php endif; ?>
 							</div>
 						</div>
-									<?php
-										}
-									?>		
-									<?php endif; ?>
-		 		</div>
+					<?php
+						}
+					?>		
+				<?php endif; ?>
+		 	</div>
 	  </div>
 	</div>
+	
+	<!-- Footer -->
+	
 	<div class="row" style="margin-top:60px;">
 	</div>
 	<footer>
