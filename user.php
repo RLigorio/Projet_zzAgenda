@@ -27,13 +27,42 @@
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>
+    <!-- Script used to display a Calendar with datetimepicker3 -->
+					
+					<script>
+						$(document).ready(function() {
+		 					$('#datePicker')
+		     				.datepicker({
+		        			format: 'dd/mm/yyyy'
+		     				})
+		     			.on('changeDate', function(e) {
+		     	   		 // Revalidate the date field
+		         		$('#eventForm').formValidation('revalidateField', 'date');
+		     			});
 
-	  	<style type="text/css">
-	    	#eventForm .form-control-feedback {
-	      	top: 0;
-	      	right: -15px;
-	      }
-    	</style>
+		 				$('#eventForm').formValidation({
+		     				framework: 'bootstrap',
+		     				icon: {
+		        			valid: 'glyphicon glyphicon-ok',
+		         		invalid: 'glyphicon glyphicon-remove',
+		         		validating: 'glyphicon glyphicon-refresh'
+		     			},
+		     			fields: {
+		        			date: {
+		             		validators: {
+		                 		notEmpty: {
+		                     	message: 'The date is required'
+		                 		},
+		                 date: {
+		                     format: 'MM/DD/YYYY',
+		                     message: 'The date is not a valid'
+		              		   }
+		           		  }
+		       		  }
+		   		  }
+		 			});
+				});
+				</script>
 
 	</head>
 
@@ -58,7 +87,7 @@
 		 			</ul>
 		 			<ul class="nav navbar-nav navbar-right">
 		 				<?php if(isset($_SESSION['username'])): ?>
-		 					<li><p style="font-size:20px; margin-top:15px; margin-right:15px;"><?php echo $logged; ?> <?php echo $_SESSION['username'] ?></p></li>
+		 					<li><p style="font-size:20px; margin-top:15px; margin-right:15px;"><?php echo $logged; ?> <?php echo $_SESSION['username']; ?></p></li>
 		 				<?php endif; ?>
 		 				<li><a href="logout.php" style="font-size:20px;"><span class="glyphicon glyphicon-log-out"></span> <?php echo $deco; ?></a></li>
 		    		<li class="dropdown" style="margin-top:8px; margin-right:15px;">
@@ -164,43 +193,6 @@
 						</div>
 						
 					</form>
-					
-					<!-- Script used to display a Calendar with datetimepicker3 -->
-					
-					<script>
-						$(document).ready(function() {
-		 					$('#datePicker')
-		     				.datepicker({
-		        			format: 'dd/mm/yyyy'
-		     				})
-		     			.on('changeDate', function(e) {
-		     	   		 // Revalidate the date field
-		         		$('#eventForm').formValidation('revalidateField', 'date');
-		     			});
-
-		 				$('#eventForm').formValidation({
-		     				framework: 'bootstrap',
-		     				icon: {
-		        			valid: 'glyphicon glyphicon-ok',
-		         		invalid: 'glyphicon glyphicon-remove',
-		         		validating: 'glyphicon glyphicon-refresh'
-		     			},
-		     			fields: {
-		        			date: {
-		             		validators: {
-		                 		notEmpty: {
-		                     	message: 'The date is required'
-		                 		},
-		                 date: {
-		                     format: 'MM/DD/YYYY',
-		                     message: 'The date is not a valid'
-		              		   }
-		           		  }
-		       		  }
-		   		  }
-		 			});
-				});
-				</script>
 				
 				</div>
 			</div>
@@ -231,11 +223,11 @@
 						<br>
 						<div class="row">
 							<div class="col-sm-6 text-left">
-								<h2><?php echo " $i->time | $i->title" ?></h2>
-								<h4><span class="glyphicon glyphicon-bullhorn"></span><?php echo "  $i->description" ?></h4>
-								<h4><span class="glyphicon glyphicon-map-marker"></span><?php echo "  $i->location" ?></h4>
-								<h4><span class="glyphicon glyphicon-user"></span><?php echo "  $i->speaker" ?></h4>
-								<h4><span class="glyphicon glyphicon-time"></span><?php echo "  $i->date | $i->time" ?></h4>
+								<h2><?php echo " $i->time | $i->title"; ?></h2>
+								<h4><span class="glyphicon glyphicon-bullhorn"></span><?php echo "  $i->description"; ?></h4>
+								<h4><span class="glyphicon glyphicon-map-marker"></span><?php echo "  $i->location"; ?></h4>
+								<h4><span class="glyphicon glyphicon-user"></span><?php echo "  $i->speaker"; ?></h4>
+								<h4><span class="glyphicon glyphicon-time"></span><?php echo "  $i->date | $i->time"; ?></h4>
 						
 								<br>
 								<br>
@@ -252,10 +244,10 @@
 									<button class="btn btn-primary" data-toggle="modal" data-target="#event-modal" type="button"><?php echo $bouton2 ;?></button>
 									<br>
 									<br>
-									<form action="deleteEvent.php?ind=<?php echo $inc ?>" method="post">
+									<form action="deleteEvent.php?ind=<?php echo $inc; ?>" method="post">
 										<button class="btn btn-danger" type="button submit" ><?php echo $bouton3 ;?></button>
 									</form>
-									<?php ++$inc ?>
+									<?php ++$inc; ?>
 								<?php endif; ?>
 							</div>
 						</div>
