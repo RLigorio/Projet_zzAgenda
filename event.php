@@ -12,7 +12,14 @@
 	
 	$arr['events'] = array_values($arr['events']);
 	
-	$arr['events'][] = array('title' => $eventN, 'description' => $eventD, 'location' => $eventL, 'speaker'=> $eventS, 'date' => $eventDa, 'time' => $eventT);
+	if(isset($_POST['ind'])) {
+		$indice = $_POST['ind'];
+		$arr['events'][$indice] = array('title' => $eventN, 'description' => $eventD, 'location' => $eventL, 'speaker'=> $eventS, 'date' => $eventDa, 'time' => $eventT);
+	}
+	
+	else {
+		$arr['events'][] = array('title' => $eventN, 'description' => $eventD, 'location' => $eventL, 'speaker'=> $eventS, 'date' => $eventDa, 'time' => $eventT);
+	}
 
 
 	$json = json_encode($arr);
