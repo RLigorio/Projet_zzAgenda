@@ -63,6 +63,21 @@
 		 			});
 				});
 				</script>
+				
+				<?php if(isset($_GET['ind'])): ?>
+					<script type="text/javascript">
+    				$(window).on('load',function(){
+        			$('#event-modal').modal('show');
+    				});
+					</script>
+				<?php endif; ?>
+				
+				<style type="text/css">
+					#eventForm .form-control-feedback {
+						top: 0;
+						right: -15px;
+					}
+				</style>
 
 	</head>
 
@@ -117,12 +132,17 @@
 	
 		<!-- Creates the form to add a new event -->
 		
-		<div class="modal fade" id="event-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: center;">
+		<div class="modal fade" id="event-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: center;" data-show="true" >
 			<div class="modal-dialog">
 				<div>
 					<form class="eventmodal-container" method="post" action="event.php">
+					
+						
 			
 						<div class="form-group" style="text-align: center;">
+							<div class="cols-sm-2" style="text-align:right;">
+								<button type="button" class="btn btn-default btn-close" data-dismiss="modal"">X</button>
+							</div>
 							<label for="Title" class="cols-sm-2 control-label" style="font-size: 30px;"><?php echo $bouton1; ?></label>
 						</div>
 					
@@ -186,10 +206,11 @@
 								</div>
 							</div>
 						</div>
-								
+						
+						<input type="hidden" name="ind" value="<?php echo $_GET['ind']; ?>" />		
 
 						<div class="form-group ">
-							<input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="<?php echo $bouton4; ?>">
+							<input type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button" value="<?php echo $bouton4; ?>" />
 						</div>
 						
 					</form>
@@ -241,7 +262,9 @@
 								
 								<?php if($_SESSION['admin']): ?>
 									<br>
-									<button class="btn btn-primary" data-toggle="modal" data-target="#event-modal" type="button"><?php echo $bouton2 ;?></button>
+									<form action="user.php?ind=<?php echo $inc; ?>" method="post">
+										<button class="btn btn-primary" type="submit"><?php echo $bouton2 ;?></button>
+									</form>
 									<br>
 									<br>
 									<form action="deleteEvent.php?ind=<?php echo $inc; ?>" method="post">
